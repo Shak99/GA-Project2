@@ -1,4 +1,4 @@
-.brand-logo {
+/*.brand-logo {
   margin-left: 15px;
 }
 
@@ -17,4 +17,8 @@
 
 .collection-item form {
   margin-top: -5px;
+}*/
+.title {
+  position: center;
+  font-family: 'Cinzel Decorative', cursive;
 }
