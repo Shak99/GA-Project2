@@ -1,14 +1,37 @@
 var router = require('express').Router();
 const passport = require('passport');
-const productsController = require('../products/flights')
+const productsController = require('../controllers/products');
 
-/* GET users listing. 
+
+
 router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
-*/
+    res.render('products/displayAll')
+  
+  });
 
-router.get("/", productsController.index) //show products
+router.get("/", productsController.displayAll) //show all products
+router.get("/new", productsController.new) //new product form
+router.get("/:id", productsController.details) //show individual details
+router.post("/", productsController.create) //store in database
 
 
 module.exports = router;
+
+
+//code check
+///////////////////////
+/*
+<% if (productDatabse.length){ %>
+    <%= productDatabase.title %>
+    <%=imageDatabase.pic %>
+    <%=productDatabase.price %>
+    <%=productDatabase.description %>
+
+<% } %>
+
+<% if (productDatabase.reviews.length){ %>
+    
+<% } %>
+*/
+
+//Product.create({title:"Sage Test", description: "The <textarea> HTML element represents a multi-line plain-text editing control, useful when you want to allow users to enter a sizeable amount of free-form text, for example a comment on a review or feedback form.", price:50})

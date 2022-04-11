@@ -7,6 +7,7 @@ const session = require('express-session');
 const passport = require('passport');
 const methodOverride = require('method-override');
 const indexRoutes = require('./routes/index');
+const productsRouter = require('./routes/products');
 // load the env consts
 require('dotenv').config();
 
@@ -17,7 +18,6 @@ const app = express();
 require('./config/database');
 // configure Passport
 require('./config/passport');
-
 
 
 // view engine setup
@@ -50,6 +50,7 @@ app.use(function (req, res, next) {
 
 // mount all routes with appropriate base paths
 app.use('/', indexRoutes);
+app.use('/products', productsRouter);
 
 
 // invalid request, send 404 page
