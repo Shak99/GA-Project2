@@ -5,13 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
     <title>Display Items</title>
 </head>
 <body>
     <nav>
         <ul>
-            <li><a>Euphoric Apex</a></li>
+            <li><a href="/">Euphoric Apex</a></li>
             <li><a href="/products" style="float:right">Items</a></li>
             <li><a href="/carts" style="float:right">Cart</a></li>
             <li><a class="liLast">Log Out</a></li>
@@ -23,7 +23,7 @@
     <h1 style="text-align: center; font-size: 36px;">Euphoric Apex</h1>
 
 <% if (productDatabase.length){ %>    
-<div class="grid-container">
+<div class="grid-container" style="position: center">
     <% productDatabase.forEach(function(p) { %>
     <div class="container" style="background: url('https://i.imgur.com/hN3Jf3j.jpg') no-repeat center center fixed; background-size: cover;">
         <nav><a href="/products/<%=p._id%>"> <%= p.title %> --- $<%=p.price %> </a></nav>

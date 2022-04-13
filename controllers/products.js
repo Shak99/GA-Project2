@@ -8,7 +8,9 @@ module.exports = {
     create,
     new: newProduct,
     options,
-    delete: deleteProduct
+    delete: deleteProduct,
+    update,
+    updatePage
 }
 
 function newProduct(req, res) {
@@ -56,8 +58,28 @@ function options(req, res){
 }
 
 function deleteProduct(req, res){
-    
+    Product.findByIdAndDelete(req.params.id, function(err, productDatabse){
+        console.log(err)
+        if (err) return res.redirect("/products/upDelete")
+        console.log(`Sucessfully deleted product #${req.params.id}`)
+        res.redirect("/products")
+    })
 }
 
+//slash for redirecting and no slash for accessing files
+
+function updatePage(req, res) {
+    res.render("products/update", { title: "Update Form" });
+}
+
+function update(res,res){
+    Product.findByIdAndUpdate(req.params.id, function(err, productDatabse){
+        productDatabse.save(req.params.id)
+        console.log(err)
+        if (err) return res.redirect("products/update/:id")
+        console.log(`Sucessfully deleted product #${req.params.id}`)
+        res.redirect("products/upDelete")
+    })
+}
 
 //for update use remove()-to erase doc

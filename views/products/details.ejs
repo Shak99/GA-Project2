@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
 	<title>Details</title>
 </head>
 <body>
@@ -21,13 +21,43 @@
     
     </nav>
 
-	<h1><%= productDatabase?.title %></h1>
+	<h1 style="font-size:40px"><%= productDatabase?.title %></h1>
     <img src="<%=//productDatabase.image%>">
     <br>
-    <a><%=productDatabase?.price%></a>
-    <a href="/products/<%=productDatabase?._id%>/carts"> <button>Add to Cart</button> </a>
+
+    <img style="border: 5px solid black;" src="/images/testImg.jpeg"> <br>
+    <a style="font-size:24px">Price: $<%=productDatabase?.price%></a> <br>
+
+
+    <form action="/carts/add/<%=productDatabase?._id%>" method="POST">
+        <input style="background-color:black; color:white; height:40px; width:100px; font-size:16px" type="submit" value="Add to Cart">
+    </form>
+    <br><br>
+    <a style="background-color:white; color: black; border: 2px solid black;"><%=productDatabase?.description%></a>
+
+
     <br>
     <div><%=productDatabase?.details%></div>
+
+
+    <% if (user) { %>
+
+        <form id="add-review-form" method="POST" action="/movies/<%= movie._id %>/reviews">
+          <label>Review:</label>
+          <textarea name="comment"></textarea>
+          <label>Rating:</label>
+          <select name="rating">
+            <option value="1">⭐️</option>
+            <option value="2">⭐️⭐️</option>
+            <option value="3">⭐️⭐️⭐️</option>
+            <option value="4">⭐️⭐️⭐️⭐️</option>
+            <option value="5">⭐️⭐️⭐️⭐️⭐️</option>
+          </select>
+          <input type="submit" value="Add Review">
+        </form>
+    
+        <% } %>
+
 
 </body>
 </html>

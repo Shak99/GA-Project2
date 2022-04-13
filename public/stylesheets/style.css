@@ -67,8 +67,9 @@ body {
   background-color: white;
   grid-template-rows: 80px 200px;
   width:200px;
-  height:180px
-
+  height:180px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 p {
@@ -80,7 +81,7 @@ ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333;
+  background-color: black;
 
   position: fixed;
   top: 0;
@@ -112,4 +113,21 @@ li a:hover {
 
 .liLast {
   float: right;
+}
+
+table, th, td { 
+  border: 1px solid black;
+  margin-left: auto;
+  margin-right: auto;
+}
+table {
+  background: #009494;
+}
+
+th, td {
+  border-style: solid;
+}
+
+td {
+  border-radius: 10px;
 }
