@@ -9,13 +9,25 @@
 	<title>Details</title>
 </head>
 <body>
-	<h1><%= productDatabase.title %></h1>
-    <a>imageDatabase.pic</a>
+
+    <nav>
+        <ul>
+            <li><a href="/">Euphoric Apex</a></li>
+            <li><a href="/products" style="float:right">Items</a></li>
+            <li><a href="/carts" style="float:right">Cart</a></li>
+            <li><a class="liLast">Log Out</a></li>
+        </ul>
+        
+    
+    </nav>
+
+	<h1><%= productDatabase?.title %></h1>
+    <img src="<%=//productDatabase.image%>">
     <br>
-    <a><%=productDatabase.price%></a>
-    <a href="/carts"> <button>Add to Cart</button> </a>
+    <a><%=productDatabase?.price%></a>
+    <a href="/products/<%=productDatabase?._id%>/carts"> <button>Add to Cart</button> </a>
     <br>
-    <div><%=productDatabase.details%></div>
+    <div><%=productDatabase?.details%></div>
 
 </body>
 </html>

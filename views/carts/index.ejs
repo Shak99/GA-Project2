@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <h1>Username's Cart</h1>
+          <tr>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Delete Info</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+            <% let totalPrice = 0 %>
+          <% cartDatabase.forEach(function(c) { %>
+            <tr>
+              <td><%= c.title %></td>
+              <td><%= c.price %></td>
+              <% totalPrice += c.price %>
+              <td><a href="/carts/delete">DELETE</a></td>
+            </tr>
+            <% }); %>
+          </tbody>
+        </table>
+        <h3>Total: <%=totalPrice%> </h3>
+        <button>Checkout</button>
+</body>
+</html>

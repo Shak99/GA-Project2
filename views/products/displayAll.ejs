@@ -6,33 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="stylesheets/style.css">
-    <title>Document</title>
+    <title>Display Items</title>
 </head>
-<nav id="nav">
-    <ul>
-        <li><a href="/products/new">Add New Items</a></li>
-        <li><a href="/products">Items</a></li>
-        <li><a href="/carts">Cart</a></li>
-
-    </ul>
-
-</nav>
 <body>
+    <nav>
+        <ul>
+            <li><a>Euphoric Apex</a></li>
+            <li><a href="/products" style="float:right">Items</a></li>
+            <li><a href="/carts" style="float:right">Cart</a></li>
+            <li><a class="liLast">Log Out</a></li>
+        </ul>
+        
+    
+    </nav>
 
-    <h1 style="text-align: center">Euphoric Apex</h1>
+    <h1 style="text-align: center; font-size: 36px;">Euphoric Apex</h1>
 
+<% if (productDatabase.length){ %>    
+<div class="grid-container">
+    <% productDatabase.forEach(function(p) { %>
+    <div class="container" style="background: url('https://i.imgur.com/hN3Jf3j.jpg') no-repeat center center fixed; background-size: cover;">
+        <nav><a href="/products/<%=p._id%>"> <%= p.title %> --- $<%=p.price %> </a></nav>
+    </div>
+    <br> <br>
+    <% }) %>
+<% } %>
 
-
-    <% //if (productDatabase.length){ %>
-            <% //productDatabase.forEach(function(p) { %>
-                <h3>Item</h3><br>
-                <%= //p.title %>
-                <%=//i.pic %>
-                <%//p.price %>
-                <%=//p.description %>
-                <br> <br>
-            <% //}) %>
-        <% //} %>
+</div>
 
 
 

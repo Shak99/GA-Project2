@@ -11,16 +11,9 @@ const productSchema = new mongoose.Schema({
 	title: String,
     price: Number,
     description: String,
+    //image: String,
     reviews: [reviewSchema]
 })
 
-const imageSchema = new mongoose.Schema({
-    productId: {type:Schema.Types.ObjectId, ref: "Product"}
-})
-
-const cartSchema = new mongoose.Schema({
-    userId: {type:Schema.Types.ObjectId, ref: "User"},
-    productId: [productSchema]
-})
 
 module.exports = mongoose.model('Product', productSchema);

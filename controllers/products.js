@@ -1,12 +1,14 @@
 const Product = require('../models/product')
-const Image = require('../models/image')
+const Cart = require('../models/cart')
 
 
 module.exports = {
     displayAll: displayAllProducts,
     details,
     create,
-    new: newProduct
+    new: newProduct,
+    options,
+    delete: deleteProduct
 }
 
 function newProduct(req, res) {
@@ -21,11 +23,20 @@ function create(req, res){
         console.log(productDatabase);
         res.redirect("/products");
     })
+
+    /*
+    const product = new Product
+    product.save(function(err){
+        if(err) return res.redirect('/products/new')
+        console.log(product)
+        res.redirect('/products')
+    })
+    */
 }
 
 function displayAllProducts(req, res){
     Product.find({}, function(err, productDatabase){
-        res.render("products/index", {productDatabase, title: "All Products",
+        res.render("products/displayAll", {productDatabase, title: "All Products",
         })
     })
 }
@@ -33,9 +44,20 @@ function displayAllProducts(req, res){
 function details(req,res){
     Product.findById(req.params.id, function(err, productDatabase){
         console.log(productDatabase)
-        Image.find({product : req.params.id}, function(err, imageDatabase){
-            console.log(imageDatabase)
-            res.render("products/display", {title: "Product Detail", productDatabase, imageDatabase})
+        res.render("products/details", {title: "Product Detail", productDatabase})
+    })
+}
+
+function options(req, res){
+    Product.find({}, function(err, productDatabase){
+        res.render("products/upDelete", {productDatabase, title: "Modify Products Options",
         })
     })
 }
+
+function deleteProduct(req, res){
+    
+}
+
+
+//for update use remove()-to erase doc
