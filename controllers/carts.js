@@ -9,19 +9,19 @@ module.exports = {
 }
 
 function addItem(req, res){
-    /*Cart.products.save( {productID: req.params.id}, function(err, cartDatbase){
-        if (err) return res.redirect(`/products/${req.params.id}/details`)
+    Cart.insertMany({user : req.user, productId : req.params.id}, function(err, cartDatabase){
+        console.log(err)
+        if (err) return res.redirect(`products/${req.params.id}/details`)
         res.redirect("/carts")
-        //what about saving user id??????
-    } )*/
+    })
 }
 
 function deleteItem(req, res){
     Cart.findByIdAndDelete(req.params.id, function(err, cartDatabase){
         console.log(err)
-        if (err) return res.redirect("carts/")
+        if (err) return res.redirect("/carts")
         console.log(`Sucessfully deleted product #${req.params.id} from cart`)
-        res.redirect("carts/")
+        res.redirect("/carts")
     })
 }
 
@@ -29,5 +29,14 @@ function list(req, res){
     Cart.find({}, function(err, cartDatabase){
         res.render("carts/index", {cartDatabase, title: "List Cart",
         })
+    })
+}
+
+function clearCart(req, res){
+    Cart.remove({}, function(err, cartDatabase){
+        console.log(err)
+        if (err) return res.redirect("carts/")
+        console.log(`Sucessfully deleted product #${req.params.id} from cart`)
+        res.redirect("carts/")
     })
 }

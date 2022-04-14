@@ -4,17 +4,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheets/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
     <title>Cart</title>
 </head>
 <body>
+
+  <nav>
+    <ul>
+        <li><a href="/">Euphoric Apex</a></li>
+        <li><a href="/products" style="float:right">Items</a></li>
+        <li><a href="/carts" style="float:right">Cart</a></li>
+        <li><a href="/logout" class="liLast">Log Out</a></li>
+    </ul>
+    
+
+</nav>
+
+
     <table>
         <thead>
-            <h1>Username's Cart</h1>
+            <h1>Cart</h1>
           <tr>
             <th>Product</th>
             <th>Price</th>
             <th>Delete Info</th>
-            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -24,12 +38,17 @@
               <td><%= c.title %></td>
               <td><%= c.price %></td>
               <% totalPrice += c.price %>
-              <td><a href="/carts/delete">DELETE</a></td>
+              <td>
+                <form action="/carts/delete/<%= c?._id %>?_method=DELETE" method="POST">
+                <input type="submit" value="Delete Product" style="color:red; background-color:black; font-family:'Cinzel Decorative',cursive;">
+                </form></td>
+              
+              </td>
             </tr>
             <% }); %>
           </tbody>
         </table>
-        <h3>Total: <%=totalPrice%> </h3>
+        <h3>Total: $<%=totalPrice%> </h3>
         <button>Checkout</button>
 </body>
 </html>

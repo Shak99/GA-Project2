@@ -15,7 +15,7 @@
             <li><a href="/">Euphoric Apex</a></li>
             <li><a href="/products" style="float:right">Items</a></li>
             <li><a href="/carts" style="float:right">Cart</a></li>
-            <li><a class="liLast">Log Out</a></li>
+            <li><a href="/logout" class="liLast">Log Out</a></li>
         </ul>
         
     
@@ -40,23 +40,69 @@
     <div><%=productDatabase?.details%></div>
 
 
-    <% if (user) { %>
 
-        <form id="add-review-form" method="POST" action="/movies/<%= movie._id %>/reviews">
+
+        <form id="add-review-form" method="POST" action="products/<%=productDatabase._id%>/reviews">
           <label>Review:</label>
           <textarea name="comment"></textarea>
           <label>Rating:</label>
           <select name="rating">
-            <option value="1">⭐️</option>
-            <option value="2">⭐️⭐️</option>
-            <option value="3">⭐️⭐️⭐️</option>
-            <option value="4">⭐️⭐️⭐️⭐️</option>
-            <option value="5">⭐️⭐️⭐️⭐️⭐️</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
           </select>
           <input type="submit" value="Add Review">
         </form>
     
-        <% } %>
+       
+
+
+        <% if (productDatabase.reviews.length) { %>
+            <table>
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Review</th>
+                  <th>Rating</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% let total=0 %>
+                  <% productDatabase.reviews.forEach(function(p) { %>
+                    <% total +=p.rating %>
+                      <tr>
+                        <td class="review-user"><img alt="avatar" src="<%= p.userAvatar %>"><%= p.userName %></td>
+                        <td>
+                          <%= p.createdAt.toLocaleDateString() %>
+                        </td>
+                        <td>
+                          <%= p.content %>
+                        </td>
+                        <td>
+                          <%= p.rating %>
+                        </td>
+                        <td>
+                          <% if (user && user._id.equals(p.user)) { %>
+                            <form action="/reviews/<%= p._id %>?_method=DELETE" method="POST">
+                              <button type="submit">X</button>
+                            </form>
+                          <% } %>
+                        </td>
+                      </tr>
+                      <% }); %>
+                        <tr>
+                          <td colspan="2"></td>
+                          <td><strong>
+                              <%= (total / productDatabase.reviews.length).toFixed(1) %>
+                            </strong></td>
+                        </tr>
+              </tbody>
+            </table>
+            <% } else { %>
+              <h5>No Reviews Yet</h5>
+              <% } %>
 
 
 </body>
