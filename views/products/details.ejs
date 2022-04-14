@@ -13,6 +13,7 @@
     <nav>
         <ul>
             <li><a href="/">Euphoric Apex</a></li>
+            <li><a href="/products/upDelete">Database</a></li>
             <li><a href="/products" style="float:right">Items</a></li>
             <li><a href="/carts" style="float:right">Cart</a></li>
             <li><a href="/logout" class="liLast">Log Out</a></li>
@@ -25,7 +26,7 @@
     <img src="<%=//productDatabase.image%>">
     <br>
 
-    <img style="border: 5px solid black;" src="/images/testImg.jpeg"> <br>
+    <img style="border: 5px solid black;" src="<%=productDatabase.image%>"> <br>
     <a style="font-size:24px">Price: $<%=productDatabase?.price%></a> <br>
 
 
@@ -41,8 +42,8 @@
 
 
 
-
-        <form id="add-review-form" method="POST" action="products/<%=productDatabase._id%>/reviews">
+<br><br>
+        <form id="add-review-form" method="POST" action="/<%=productDatabase._id%>/reviews">
           <label>Review:</label>
           <textarea name="comment"></textarea>
           <label>Rating:</label>

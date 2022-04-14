@@ -11,6 +11,7 @@
     <nav>
         <ul>
             <li><a href="/">Euphoric Apex</a></li>
+            <li><a href="/products/upDelete">Database</a></li>
             <li><a href="/products" style="float:right">Items</a></li>
             <li><a href="/carts" style="float:right">Cart</a></li>
             <li><a href="/logout" class="liLast">Log Out</a></li>
@@ -24,7 +25,7 @@
 <% if (productDatabase.length){ %>    
 <div class="grid-container" style="position: center">
     <% productDatabase.forEach(function(p) { %>
-    <div class="container" style="background: url('https://i.imgur.com/hN3Jf3j.jpg') no-repeat center center fixed; background-size: cover;">
+    <div class="container" style="background: url('<%=p.image%>'); object-fit: contain;">
         <nav><a href="/products/<%=p._id%>"> <%= p.title %> --- $<%=p.price %> </a></nav>
     </div>
     <br> <br>

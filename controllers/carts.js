@@ -5,7 +5,8 @@ const Cart = require('../models/cart')
 module.exports = {
     addItem,
     deleteItem,
-    list
+    list,
+    success
 }
 
 function addItem(req, res){
@@ -39,4 +40,8 @@ function clearCart(req, res){
         console.log(`Sucessfully deleted product #${req.params.id} from cart`)
         res.redirect("carts/")
     })
+}
+
+function success(req, res){
+    res.render("carts/success")
 }

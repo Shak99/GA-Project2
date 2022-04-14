@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Are you sure you want to delete <%=productDatabase.title%>?</h1>
+    <form action="/products/delete/<%= productDatabase?._id %>?_method=DELETE" method="POST">
+        <input type="submit" value="Yes, delete" style="color:red; background-color:black; font-family:'Cinzel Decorative',cursive;">
+    </form></td>
+
+</body>
+</html>
