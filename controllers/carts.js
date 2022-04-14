@@ -14,6 +14,7 @@ function addItem(req, res){
         console.log(err)
         if (err) return res.redirect(`products/${req.params.id}/details`)
         res.redirect("/carts")
+        console.log(cartDatabase)
     })
 }
 
@@ -32,7 +33,15 @@ function list(req, res){
         })
     })
 }
-
+/*
+Flight.findById(req.params.id, function(err, flightDatabase){
+        console.log(flightDatabase)
+        Ticket.find({flight : req.params.id}, function(err, ticketDatabase){
+            console.log(ticketDatabase)
+            res.render("flights/show", {title: "Flight Detail", flightDatabase, ticketDatabase});
+        })
+    })
+*/
 function clearCart(req, res){
     Cart.remove({}, function(err, cartDatabase){
         console.log(err)

@@ -23,7 +23,7 @@ function create(req, res){
         console.log(err)
         if (err) return res.redirect("/products/new");
         console.log(productDatabase);
-        res.redirect("/products");
+        res.redirect("/products/upDelete");
     })
 
     /*

@@ -22,7 +22,7 @@
     
     </nav>
 
-	<h1 style="font-size:40px"><%= productDatabase?.title %></h1>
+	<h1 style="font-size:40px; text-decoration: underline;"><%= productDatabase?.title %></h1>
     <img src="<%=//productDatabase.image%>">
     <br>
 
@@ -43,9 +43,9 @@
 
 
 <br><br>
-        <form id="add-review-form" method="POST" action="/<%=productDatabase._id%>/reviews">
-          <label>Review:</label>
-          <textarea name="comment"></textarea>
+        <form id="add-review-form" method="POST" action="/reviews/<%=productDatabase._id%>?_method=POST">
+          <label>Review:</label><br>
+          <textarea name="content" style="height: 60px; width: 300px"></textarea><br>
           <label>Rating:</label>
           <select name="rating">
             <option value="1">1</option>
@@ -74,7 +74,6 @@
                   <% productDatabase.reviews.forEach(function(p) { %>
                     <% total +=p.rating %>
                       <tr>
-                        <td class="review-user"><img alt="avatar" src="<%= p.userAvatar %>"><%= p.userName %></td>
                         <td>
                           <%= p.createdAt.toLocaleDateString() %>
                         </td>

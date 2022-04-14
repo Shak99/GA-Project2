@@ -31,6 +31,7 @@
             <th style="font-size:20px">Product</th>
             <th style="font-size:20px">Description</th>
             <th style="font-size:20px">Price</th>
+            <th style="font-size:20px">Image URL</th>
             <th style="font-size:20px">Update Info</th>
             <th style="font-size:20px">Delete Info</th>
           </tr>
@@ -41,6 +42,7 @@
               <td style="color:black"><%= p?.title %></td>
               <td style="color:black"><%= p?.description %></td>
               <td style="color:black">$<%= p?.price %></td>
+              <td style="color:black"><%= p?.image %></td>
               <td style="background-color:rgba(0, 0, 0, 0.728)"><a href="/products/update/<%=p._id%>" style="color:rgb(144, 122, 0);">UPDATE</a></td>
               <td style="background-color:hsla(0, 0%, 0%, 0.728)">
                 <form action="/products/delete/<%= p?._id %>?_method=DELETE" method="POST">
