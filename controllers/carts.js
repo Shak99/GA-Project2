@@ -27,7 +27,7 @@ function deleteItem(req, res){
 
 function list(req, res){
     Cart.find({}, function(err, cartDatabase){
-        res.render("carts/list", {cartDatabase, title: "List Cart",
+        res.render("carts/index", {cartDatabase, title: "List Cart",
         })
     })
 }

@@ -62,23 +62,22 @@ function deleteProduct(req, res){
         console.log(err)
         if (err) return res.redirect("/products/upDelete")
         console.log(`Sucessfully deleted product #${req.params.id}`)
-        res.redirect("/products")
+        res.redirect("/products/upDelete")
     })
 }
 
 //slash for redirecting and no slash for accessing files
 
 function updatePage(req, res) {
-    res.render("products/update", { title: "Update Form" });
+    Product.findById(req.params.id, function(err, productDatabase){
+        res.render("products/update", {productDatabase, title: "Update Form" });
+    })
 }
 
-function update(res,res){
-    Product.findByIdAndUpdate(req.params.id, function(err, productDatabse){
-        productDatabse.save(req.params.id)
-        console.log(err)
-        if (err) return res.redirect("products/update/:id")
-        console.log(`Sucessfully deleted product #${req.params.id}`)
-        res.redirect("products/upDelete")
+function update(req,res){
+    Product.findOneAndUpdate({_id : req.params.id}, req.body, function(err, updatedData){
+        if(err) return res.send(500, {error: err});
+        return res.redirect("/products/upDelete")
     })
 }
 
