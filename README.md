@@ -2,7 +2,7 @@ Full Stack CRUD Web App: Euphoric Apex
 
 Euphoric Apex is an online metaphysical store. You can view all the items the store has online and add them to your car to check out. It has an administration feature where you can update the store by adding, deleting, or updating an item. Google authentication is used for a user to log in.
 
-ERD
+ERD Diagram
 <img width="798" alt="Screen Shot 2022-04-15 at 1 09 08 PM" src="https://user-images.githubusercontent.com/47376680/163627697-4ed80bc7-f575-419a-a073-b3a8158073d3.png">
 
 Wire Frames
