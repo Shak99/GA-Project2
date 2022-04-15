@@ -39,6 +39,13 @@ If you choose to delete, there will be a confirmation to delete page, giving you
 
 If you happen to be on the Database tab and are not logged in, you will get the message that you don't have access to the page
 
+Technologies Used:
+1. NodeJs
+2. JavaScript
+3. MongoDB
+4. Heroku
+
+
 
 Future Plans:
 1. Fix Database relations for displaying Cart correctly.
