@@ -90,4 +90,3 @@ function update(req,res){
     })
 }
 
-//for update use remove()-to erase doc

@@ -38,13 +38,7 @@ function create(req, res) {
     productDatabase.save(function (err) {
         console.log(err)
       console.log(productDatabase);
-      // then we want to respond to the client!
-      // redirect them to a page, What page makes sense to redirect?
       res.redirect(`/products/${productDatabase._id}`);
     });
   });
-
-  // res.send('hello')
-
-  //
 }
