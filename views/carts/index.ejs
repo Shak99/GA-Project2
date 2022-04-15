@@ -10,22 +10,36 @@
 </head>
 <body>
 
-  <nav>
-    <ul>
-        <li><a href="/">Euphoric Apex</a></li>
-        <li><a href="/products/upDelete">Database</a></li>
-        <li><a href="/products" style="float:right">Items</a></li>
-        <li><a href="/carts" style="float:right">Cart</a></li>
-        <li><a href="/logout" class="liLast">Log Out</a></li>
-    </ul>
+  <%if (user) {%>
+    <nav>
+        <ul>
+            <li><a href="/">Euphoric Apex</a></li>
+            <li><a href="/products/upDelete">Database</a></li>
+            <li><a href="/products" style="float:right">Items</a></li>
+            <li><a href="/carts" style="float:right">Cart</a></li>
+            <li><a href="/logout" class="liLast">Log Out</a></li>
+        </ul>
+        
     
-
-</nav>
+    </nav>
+    <% } else {%>
+        <nav>
+            <ul>
+                <li><a href="/">Euphoric Apex</a></li>
+                <li><a href="/products" style="float:right">Items</a></li>
+                <li><a href="/carts" style="float:right">Cart</a></li>
+                
+            </ul>
+            
+        
+        </nav>
+    <% } %>
 
 
     <table>
         <thead>
             <h1>Cart</h1>
+
           <tr>
             <th>Product</th>
             <th>Price</th>
@@ -38,10 +52,10 @@
             <tr>
               <td><%= c.title %></td>
               <td><%= c.price %></td>
-              <% totalPrice += c.price %>
+              <% totalPrice ++ %>
               <td>
                 <form action="/carts/delete/<%= c?._id %>?_method=DELETE" method="POST">
-                <input type="submit" value="Delete Product" style="color:red; background-color:black; font-family:'Cinzel Decorative',cursive;">
+                <input type="submit" value="Delete Product" style="color:red; background-color:black; font-family:'Cinzel Decorative',cursive; border-radius: 12px;">
                 </form></td>
               
               </td>
@@ -50,8 +64,9 @@
           </tbody>
         </table>
         <h3>Total: $<%=totalPrice%> </h3>
+        <a href="/products" style="text-align:left;"><button style="border-radius: 12px; font-size: 20px; background-color: black; color: white; font-weight: bold; position: left">Back to Store</button></a>
         <% if (totalPrice > 0) { %>
-          <a href="carts/success"><button>Checkout</button></a>
+          <a href="carts/success"><button style="border-radius: 12px; font-size: 20px; color: red; font-weight: bold; position: left">Checkout</button></a>
         <% } %>
 </body>
 </html>

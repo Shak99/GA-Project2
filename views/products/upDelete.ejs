@@ -11,7 +11,8 @@
 </head>
 <body>
 
-  <nav>
+<% if (user) {%>
+<nav>
     <ul>
         <li><a href="/">Euphoric Apex</a></li>
         <li><a href="/products/upDelete">Database</a></li>
@@ -23,7 +24,12 @@
 
 </nav>
 
-  <h1>Current Product Database</h1>
+<%//if (user.userId == "6251fc955678ee3c832e4d5f") {%>
+
+  <h1 style="text-decoration:underline">Current Items Database</h1>
+
+  <a href="/products/new"><button style="border-radius: 12px; font-size: 20px; color: rgb(8, 212, 22); font-weight: bold; position: left">Add New Item</button></a> 
+  <br><br>
 
     <table>
         <thead>
@@ -46,15 +52,28 @@
               <td style="background-color:rgba(0, 0, 0, 0.728)"><a href="/products/update/<%=p._id%>" style="color:rgb(144, 122, 0);">UPDATE</a></td>
               <td style="background-color:hsla(0, 0%, 0%, 0.728)">
                 <form action="/products/delete/<%= p?._id %>?_method=DELETE" method="POST">
-                  <input type="submit" value="Delete Product" style="color:red; background-color:black; font-family:'Cinzel Decorative',cursive;">
+                  <input type="submit" value="Delete Product" style="color:red; background-color:black; font-family:'Cinzel Decorative',cursive; border-radius: 12px;">
                 </form></td>
 
             </tr>
             <% }); %>
           </tbody>
         </table>
+    <% //} %>
 
-        <a href="/products/new" style="color: white"><button>NEW PRODUCT</button></a> <br>
-    
+  <% //} else { %>
+    <% } else {%>
+      <nav>
+          <ul>
+              <li><a href="/">Euphoric Apex</a></li>
+              <li><a href="/products" style="float:right">Items</a></li>
+              <li><a href="/carts" style="float:right">Cart</a></li>
+          </ul>
+          
+      
+      </nav>
+  <%// } %>
+    <h1 style="padding-top: 100px; font-size: 40px">You do not have access to this page</h1>
+  <% } %>
 </body>
 </html>

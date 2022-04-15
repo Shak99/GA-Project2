@@ -7,6 +7,30 @@
     <title>Document</title>
 </head>
 <body>
+    <%if (user) {%>
+        <nav>
+            <ul>
+                <li><a href="/">Euphoric Apex</a></li>
+                <li><a href="/products/upDelete">Database</a></li>
+                <li><a href="/products" style="float:right">Items</a></li>
+                <li><a href="/carts" style="float:right">Cart</a></li>
+                <li><a href="/logout" class="liLast">Log Out</a></li>
+            </ul>
+            
+        
+        </nav>
+        <% } else {%>
+            <nav>
+                <ul>
+                    <li><a href="/">Euphoric Apex</a></li>
+                    <li><a href="/products" style="float:right">Items</a></li>
+                    <li><a href="/carts" style="float:right">Cart</a></li>
+                    
+                </ul>
+                
+            
+            </nav>
+        <% } %>
 
 
 

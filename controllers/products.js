@@ -52,6 +52,7 @@ function details(req,res){
 
 function options(req, res){
     Product.find({}, function(err, productDatabase){
+        console.log(req.user)
         res.render("products/upDelete", {productDatabase, title: "Modify Products Options",
         })
     })

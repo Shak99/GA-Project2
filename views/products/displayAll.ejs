@@ -8,25 +8,38 @@
     <title>Display Items</title>
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="/">Euphoric Apex</a></li>
-            <li><a href="/products/upDelete">Database</a></li>
-            <li><a href="/products" style="float:right">Items</a></li>
-            <li><a href="/carts" style="float:right">Cart</a></li>
-            <li><a href="/logout" class="liLast">Log Out</a></li>
-        </ul>
+    <%if (user) {%>
+        <nav>
+            <ul>
+                <li><a href="/">Euphoric Apex</a></li>
+                <li><a href="/products/upDelete">Database</a></li>
+                <li><a href="/products" style="float:right">Items</a></li>
+                <li><a href="/carts" style="float:right">Cart</a></li>
+                <li><a href="/logout" class="liLast">Log Out</a></li>
+            </ul>
+            
         
-    
-    </nav>
+        </nav>
+        <% } else {%>
+            <nav>
+                <ul>
+                    <li><a href="/">Euphoric Apex</a></li>
+                    <li><a href="/products" style="float:right">Items</a></li>
+                    <li><a href="/carts" style="float:right">Cart</a></li>
+                    
+                </ul>
+                
+            
+            </nav>
+        <% } %>
 
     <h1 style="text-align: center; font-size: 36px;">Euphoric Apex</h1>
 
 <% if (productDatabase.length){ %>    
 <div class="grid-container" style="position: center">
     <% productDatabase.forEach(function(p) { %>
-    <div class="container" id="divImg" style="background: url('<%=p.image%>'); background-size: contain">
-        <nav><a href="/products/<%=p._id%>"> <%= p.title %> --- $<%=p.price %> </a></nav>
+    <div class="container" id="divImg" style="background: url('<%=p.image%>'); background-size: contain; background-repeat: no-repeat;">
+        <a href="/products/<%=p._id%>"> <%= p.title %> --- $<%=p.price %> </a>
     </div>
     <br> <br>
     <% }) %>

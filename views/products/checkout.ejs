@@ -9,17 +9,31 @@
     <title>Document</title>
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="localhost:3000">Euphoric Apex</a></li>
-            <li><a href="/products/upDelete">Database</a></li>
-            <li><a href="/products" style="float:right">Items</a></li>
-            <li><a href="/carts" style="float:right">Cart</a></li>
-            <li><a href="/logout" class="liLast">Log Out</a></li>
-        </ul>
+    <%if (user) {%>
+        <nav>
+            <ul>
+                <li><a href="/">Euphoric Apex</a></li>
+                <li><a href="/products/upDelete">Database</a></li>
+                <li><a href="/products" style="float:right">Items</a></li>
+                <li><a href="/carts" style="float:right">Cart</a></li>
+                <li><a href="/logout" class="liLast">Log Out</a></li>
+            </ul>
+            
         
-    
-    </nav>
+        </nav>
+        <% } else {%>
+            <nav>
+                <ul>
+                    <li><a href="/">Euphoric Apex</a></li>
+                    <li><a href="/products" style="float:right">Items</a></li>
+                    <li><a href="/carts" style="float:right">Cart</a></li>
+                    
+                </ul>
+                
+            
+            </nav>
+        <% } %>
+        
     <h1>Checkout Complete!</h1>
 
     <button><a href="/products">Return to Store</a></button>
