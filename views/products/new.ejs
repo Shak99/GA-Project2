@@ -11,29 +11,17 @@
 <body>
 
   <%if (user) {%>
-    <nav>
-        <ul>
-            <li><a href="/">Euphoric Apex</a></li>
-            <li><a href="/products/upDelete">Database</a></li>
-            <li><a href="/products" style="float:right">Items</a></li>
-            <li><a href="/carts" style="float:right">Cart</a></li>
-            <li><a href="/logout" class="liLast">Log Out</a></li>
-        </ul>
-        
+<nav>
+    <ul>
+        <li><a href="/">Euphoric Apex</a></li>
+        <li><a href="/products/upDelete">Database</a></li>
+        <li><a href="/products" style="float:right">Items</a></li>
+        <li><a href="/carts" style="float:right">Cart</a></li>
+        <li><a href="/logout" class="liLast">Log Out</a></li>
+    </ul>
     
-    </nav>
-    <% } else {%>
-        <nav>
-            <ul>
-                <li><a href="/">Euphoric Apex</a></li>
-                <li><a href="/products" style="float:right">Items</a></li>
-                <li><a href="/carts" style="float:right">Cart</a></li>
-                
-            </ul>
-            
-        
-        </nav>
-    <% } %>
+
+</nav>
 
 <h1>Add new Item</h1>
 
@@ -55,6 +43,23 @@
   </form>
 
   <a href="/products/upDelete"><button>Cancel</button></a>
+
+
+  <% } else {%>
+    <nav>
+        <ul>
+            <li><a href="/">Euphoric Apex</a></li>
+            <li><a href="/products" style="float:right">Items</a></li>
+            <li><a href="/carts" style="float:right">Cart</a></li>
+            <li><a href="/">Sign In</a></li>
+            
+        </ul>
+        
+    
+    </nav>
+
+    <h1 style="padding-top: 100px; font-size: 40px">You do not have access to this page</h1>
+<% } %>
   
 </body>
 </html>

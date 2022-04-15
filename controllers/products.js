@@ -10,7 +10,8 @@ module.exports = {
     options,
     delete: deleteProduct,
     update,
-    updatePage
+    updatePage,
+    confirm
 }
 
 function newProduct(req, res) {
@@ -47,6 +48,13 @@ function details(req,res){
     Product.findById(req.params.id, function(err, productDatabase){
         console.log(productDatabase)
         res.render("products/details", {title: "Product Detail", productDatabase})
+    })
+}
+
+function confirm(req,res){
+    Product.findById(req.params.id, function(err, productDatabase){
+        console.log(productDatabase)
+        res.render("products/confirmation", {title: "Delete Confirmation", productDatabase})
     })
 }
 

@@ -4,10 +4,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/style.css">
     <title>Document</title>
 </head>
 <body>
-    <h1>You have successfully checked out</h1>
+
+    <%if (user) {%>
+        <nav>
+            <ul>
+                <li><a href="/">Euphoric Apex</a></li>
+                <li><a href="/products/upDelete">Database</a></li>
+                <li><a href="/products" style="float:right">Items</a></li>
+                <li><a href="/carts" style="float:right">Cart</a></li>
+                <li><a href="/logout" class="liLast">Log Out</a></li>
+            </ul>
+            
+        
+        </nav>
+        <% } else {%>
+            <nav>
+                <ul>
+                    <li><a href="/">Euphoric Apex</a></li>
+                    <li><a href="/products" style="float:right">Items</a></li>
+                    <li><a href="/carts" style="float:right">Cart</a></li>
+                    <li><a href="/">Sign In</a></li>
+                    
+                </ul>
+                
+            
+            </nav>
+        <% } %>
+
+
+    <h1 style="padding-top:200px; font-weight:bolder">You have successfully checked out</h1>
     <h1>Thank you for shopping with Euphoric Apex!</h1>
 </body>
 </html>

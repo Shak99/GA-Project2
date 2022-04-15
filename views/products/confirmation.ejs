@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
+
     <title>Document</title>
 </head>
 <body>
@@ -25,6 +28,7 @@
                     <li><a href="/">Euphoric Apex</a></li>
                     <li><a href="/products" style="float:right">Items</a></li>
                     <li><a href="/carts" style="float:right">Cart</a></li>
+                    <li><a href="/">Sign In</a></li>
                     
                 </ul>
                 
@@ -32,10 +36,13 @@
             </nav>
         <% } %>
     
-    <h1>Are you sure you want to delete <%=productDatabase.title%>?</h1>
+    <h1 style="padding-top:150px">Are you sure you want to delete <%=productDatabase.title%>?</h1>
     <form action="/products/delete/<%= productDatabase?._id %>?_method=DELETE" method="POST">
-        <input type="submit" value="Yes, delete" style="color:red; background-color:black; font-family:'Cinzel Decorative',cursive;">
+        <input type="submit" value="Yes, delete" style="color:red; background-color:black; font-family:'Cinzel Decorative',cursive;border-radius: 12px; font-size: 20px;">
     </form></td>
+    <br>
+
+    <a href="/products/upDelete"><button style="color:Blue; background-color:black; font-family:'Cinzel Decorative',cursive;border-radius: 12px; font-size: 20px;">No</button></a>
 
 </body>
 </html>

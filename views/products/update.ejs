@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <title>Update</title>
 </head>
 <body>
     <%if (user) {%>
@@ -19,37 +21,46 @@
             
         
         </nav>
+
+        <form id="new-form" action="/products/update/<%=productDatabase._id%>?_method=PUT" method="POST">
+    
+            <label>Product Name:</label>
+            <input type="text" name="title" value="<%= productDatabase?.title %>">
+            <br>
+            <label style="padding-right: 20px">Description:</label> <br>
+            <textarea name="description" rows="5" cols="50"><%=productDatabase?.description%></textarea>
+            <br>
+            <label>Price:</label>
+            <input type="number" name="price" value="<%=productDatabase?.price%>">
+            <br>
+            <label>Image URL:</label>
+            <input type="text" name="image" value="<%=productDatabase?.image%>">
+            <br>
+            <input type="submit" style="border-radius: 12px; font-size: 20px; background-color: black; color: white; font-weight: bold; position: left" value="Save Product">
+          </form>
+
+          <a href="/products/upDelete"><button style="border-radius: 12px; font-size: 20px; background-color: black; color: white; font-weight: bold; position: left">Cancel</button></a>
+
+
         <% } else {%>
             <nav>
                 <ul>
                     <li><a href="/">Euphoric Apex</a></li>
                     <li><a href="/products" style="float:right">Items</a></li>
                     <li><a href="/carts" style="float:right">Cart</a></li>
+                    <li><a href="/">Sign In</a></li>
                     
                 </ul>
                 
             
             </nav>
+
+            <h1 style="padding-top: 100px; font-size: 40px">You do not have access to this page</h1>
         <% } %>
 
 
 
-    <form id="new-form" action="/products/update/<%=productDatabase._id%>?_method=PUT" method="POST">
     
-        <label>Product Name:</label>
-        <input type="text" name="title" value="<%= productDatabase?.title %>">
-        <br>
-        <label style="padding-right: 20px">Description:</label> <br>
-        <textarea name="description" rows="5" cols="50"><%=productDatabase?.description%></textarea>
-        <br>
-        <label>Price:</label>
-        <input type="number" name="price" value="<%=productDatabase?.price%>">
-        <br>
-        <label>Image URL:</label>
-        <input type="text" name="image" value="<%=productDatabase?.image%>">
-        <br>
-        <input type="submit" value="Save Product">
-      </form>
 
 </body>
 </html>
