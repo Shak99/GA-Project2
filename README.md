@@ -42,10 +42,11 @@ If you happen to be on the Database tab and are not logged in, you will get the 
 Technologies Used:
 1. NodeJs
 2. HTML
-3. CSS
-4. MongoDB
-5. Express
-6. Heroku
+3. JavaScript
+4. CSS
+5. MongoDB
+6. Express
+7. Heroku
 
 
 
