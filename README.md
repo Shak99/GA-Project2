@@ -41,9 +41,9 @@ If you happen to be on the Database tab and are not logged in, you will get the 
 
 
 Future Plans:
-1. Fix Database relations for displaying Cart correctly
-2. Work on CSS
-3. Change access to edit database to specific user(s)
+1. Fix Database relations for displaying Cart correctly.
+2. Work on CSS to make format and colors easier to read through.
+3. Change access to edit database to specific user(s).
 
 
 Deployment link: https://euphoric-apex.herokuapp.com/
